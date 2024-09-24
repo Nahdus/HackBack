@@ -1,29 +1,29 @@
-// modules/webSocketServer.js
 const WebSocket = require('ws');
 
-// Create a WebSocket server on port 8080
+
 const wss = new WebSocket.Server({ port: 8080 });
+const clients = new Set();
+
 
 wss.on('connection', (ws) => {
-    console.log('Client connected');
-    
-    // Handle client messages (optional)
-    ws.on('message', (message) => {
-        console.log('Received from client: ', message);
-    });
+    clients.add(ws);
+
 
     ws.on('close', () => {
-        console.log('Client disconnected');
+        clients.delete(ws);
     });
 });
 
-// Broadcast message to all connected clients
+
 function broadcastLog(logMessage) {
-    wss.clients.forEach((client) => {
+    // Ensure logMessage is a JSON string
+    const messageString = JSON.stringify(logMessage);
+    clients.forEach(client => {
         if (client.readyState === WebSocket.OPEN) {
-            client.send(logMessage);
+            client.send(messageString);
         }
     });
 }
+
 
 module.exports = broadcastLog;
