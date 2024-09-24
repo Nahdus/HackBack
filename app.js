@@ -49,18 +49,18 @@ nodeset=[{'nodeId': 'N1402',
 
 app.post('/datainsights', async (req, res) => {
 
-    const requestData = nodeset[Math.random(length(nodeset))];  // Extract data from the request body
+    // const requestData = nodeset[Math.random(nodeset.length)];  // Extract data from the request body
+    // const packetCount =  req.packetCount; // Test for traffic flow
+    // const nodeCapacity =  req.nodeCapacity; // Node capacity is set to 100 packets
+    // const tempValue = req.temperature;
+    // const batteryLevel = req.battery;
+    // const nodeId = req.nodeId;
+    const requestData = req.body;  // Extract data from the request body
     const packetCount =  req.body.packetCount; // Test for traffic flow
     const nodeCapacity =  req.body.nodeCapacity; // Node capacity is set to 100 packets
     const tempValue = req.body.temperature;
     const batteryLevel = req.body.battery;
     const nodeId = req.body.nodeId;
-    // const requestData = req.body;  // Extract data from the request body
-    // const packetCount =  req.body.packetCount; // Test for traffic flow
-    // const nodeCapacity =  req.body.nodeCapacity; // Node capacity is set to 100 packets
-    // const tempValue = req.body.temperature;
-    // const batteryLevel = req.body.battery;
-    // const nodeId = req.body.nodeId;
     resp = await datainsights(nodeId,tempValue,packetCount,nodeCapacity,batteryLevel)
     console.log('Received data:', requestData);
 

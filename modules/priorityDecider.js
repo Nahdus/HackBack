@@ -30,7 +30,7 @@ function determinePriority(tempValue, packetCount, nodeCapacity, batteryLevel) {
     } else {
         priorityLevel = 'P5'; // Lowest priority
     }
-console.log({priorityScore: P})
+console.log({priorityScore: P, priorityLevel})
     return priorityLevel ;
 }
 

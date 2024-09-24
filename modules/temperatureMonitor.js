@@ -14,14 +14,14 @@ function monitorTemperature(temp, priority, nodeId) {
         }
     } else if (temp >= 50 && temp < 70) {
         for (let index = 0; index < 1; index++) {
-            let each = genran(0.05);
-            intervalTime = each * 6000;
+            let each = genran(0.5);
+            intervalTime = each * 60000;
             description = 'Overheated';
         }
     } else if (temp >= 35 && temp < 50) {
         for (let index = 0; index < 1; index++) {
-            let each = genran(0.05);
-            intervalTime = each * 12000;
+            let each = genran(0.5);
+            intervalTime = each * 120000;
             description = 'Moderate';
         }
     } else {

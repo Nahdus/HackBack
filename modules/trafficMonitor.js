@@ -2,7 +2,7 @@ const logTicket = require('./Ticketing');
 
 function monitorTrafficFlow(packetCount, priority, nodeCapacity, nodeId) {
     if (packetCount >= nodeCapacity) {
-        console.log(`Node ID: ${nodeId} reached capacity with ${packetCount} packets. Logging ticket for traffic overflow.`);
+        //console.log(`Node ID: ${nodeId} reached capacity with ${packetCount} packets. Logging ticket for traffic overflow.`);
         logTicket('Traffic Flow', packetCount, priority,`${priority} Node capacity ${nodeCapacity} exceeded`, nodeId);
         
     } else {

@@ -17,7 +17,7 @@ function logTicket(ticketType, value,priority, description, nodeId) {
     });
 
     // Send the log message to WebSocket clients
-    broadcastLog(logMessage);
+    broadcastLog(JSON.parse(logMessage));
 }
 
 module.exports = logTicket;
